@@ -40,11 +40,11 @@ public class History extends AppCompatActivity {
                 String[] separated1 = pricol.split(", ");
                 if (separated1.length == 1)
                     return;
-                for (int i = 0; i < separated1.length; i++) {
+                for (int i = separated1.length - 2; i >= 0; i--) {
                     String[] separated2 = separated1[i].split("=");
-                    if (separated2[0].equals("email")) {
-                        break;
-                    }
+//                    if (separated2[0].equals("email")) {
+//                        break;
+//                    }
                     Part request = new Part(separated2[1], separated2[2]);
                     partList.add(request);
                 }

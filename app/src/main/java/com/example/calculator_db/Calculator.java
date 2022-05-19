@@ -110,37 +110,44 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void plusClick(View view) {
-        if (process != "") {
+        if (process != "" && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+                process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
             Button changeText = (Button) findViewById(R.id.plus);
             int id = changeText.getId();
-            updateText(id, " + ");
+            updateText(id, "+");
         }
     }
 
     public void minusClick(View view) {
-        Button changeText = (Button) findViewById(R.id.minus);
-        int id = changeText.getId();
-        updateText(id, " - ");
+        if (process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+                process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
+            Button changeText = (Button) findViewById(R.id.minus);
+            int id = changeText.getId();
+            updateText(id, "-");
+        }
     }
 
     public void multiplyClick(View view) {
-        if (process != "") {
+        if (process != "" && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+                process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
             Button changeText = (Button) findViewById(R.id.multiply);
             int id = changeText.getId();
-            updateText(id, " * ");
+            updateText(id, "*");
         }
     }
 
     public void divideClick(View view) {
-        if (process != "") {
+        if (process != "" && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+                process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
             Button changeText = (Button) findViewById(R.id.divide);
             int id = changeText.getId();
-            updateText(id, " / ");
+            updateText(id, "/");
         }
     }
 
     public void powClick(View view) {
-        if (process != "") {
+        if (process != "" && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+                process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
             Button changeText = (Button) findViewById(R.id.divide);
             int id = changeText.getId();
             updateText(id, "^");
@@ -158,7 +165,8 @@ public class Calculator extends AppCompatActivity {
         changingText.setText(result);
         DAOUser dao = new DAOUser(FirebaseAuth.getInstance().getCurrentUser());
         dao.addPart(uploadHistory(process, result));
-        process = result;
+        changingText.setText("0");
+        process = "";
 
     }
 
