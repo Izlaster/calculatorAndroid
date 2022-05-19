@@ -95,7 +95,8 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void dotClick(View view) {
-        if (process != "") {
+        String[] partDot = process.split("[-\\/\\+\\*]");
+        if (!process.equals("") && !partDot[partDot.length - 1].contains(".")) {
             Button changeText = (Button) findViewById(R.id.dot);
             int id = changeText.getId();
             updateText(id, ".");
@@ -110,7 +111,7 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void plusClick(View view) {
-        if (process != "" && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+        if (!process.equals("") && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
                 process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
             Button changeText = (Button) findViewById(R.id.plus);
             int id = changeText.getId();
@@ -128,7 +129,7 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void multiplyClick(View view) {
-        if (process != "" && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+        if (!process.equals("") && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
                 process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
             Button changeText = (Button) findViewById(R.id.multiply);
             int id = changeText.getId();
@@ -137,7 +138,7 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void divideClick(View view) {
-        if (process != "" && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+        if (!process.equals("") && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
                 process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
             Button changeText = (Button) findViewById(R.id.divide);
             int id = changeText.getId();
@@ -146,7 +147,7 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void powClick(View view) {
-        if (process != "" && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
+        if (!process.equals("") && process.indexOf("+", process.length() - 1) == -1 && process.indexOf("-", process.length() - 1) == -1 &&
                 process.indexOf("*", process.length() - 1) == -1 && process.indexOf("/", process.length() - 1) == -1 && process.indexOf("^", process.length() - 1) == -1) {
             Button changeText = (Button) findViewById(R.id.divide);
             int id = changeText.getId();

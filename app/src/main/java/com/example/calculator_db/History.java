@@ -37,11 +37,18 @@ public class History extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 partList.clear();
                 String pricol = snapshot.getValue().toString();
+                System.out.println(pricol);
                 String[] separated1 = pricol.split(", ");
                 if (separated1.length == 1)
                     return;
-                for (int i = separated1.length - 2; i >= 0; i--) {
+                for (int i = separated1.length - 1; i >= 0; i--) {
                     String[] separated2 = separated1[i].split("=");
+                    if (separated2[0].equals("email")) {
+                        continue;
+                    }
+                    if (separated2[2].contains("}")) {
+                        separated2[2] = separated2[2].substring(0, separated2[2].length()-1);
+                    }
                     Part request = new Part(separated2[1], separated2[2]);
                     partList.add(request);
                 }
