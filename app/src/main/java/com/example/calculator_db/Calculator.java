@@ -162,12 +162,13 @@ public class Calculator extends AppCompatActivity {
         process = process.replaceAll("×", "*");
         Expression exp = new Expression(process);
         String result = String.valueOf(exp.calculate());
+        String[] part = result.split("\\.");
+        if (part[1].equals("0"))
+            result = part[0];
         changingText.setText(result);
         DAOUser dao = new DAOUser(FirebaseAuth.getInstance().getCurrentUser());
         dao.addPart(uploadHistory(process, result));
-        changingText.setText("0");
         process = "";
-
     }
 
     public void storyClick(View view) {

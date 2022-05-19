@@ -54,6 +54,7 @@
             android:layout_weight="2"
             android:gravity="center_vertical"
             android:paddingEnd="30dp"
+            android:paddingStart="30dp"
             android:text="0"
             android:textColor="@color/white"
             android:textSize="70sp"

@@ -42,9 +42,6 @@ public class History extends AppCompatActivity {
                     return;
                 for (int i = separated1.length - 2; i >= 0; i--) {
                     String[] separated2 = separated1[i].split("=");
-//                    if (separated2[0].equals("email")) {
-//                        break;
-//                    }
                     Part request = new Part(separated2[1], separated2[2]);
                     partList.add(request);
                 }
